@@ -437,12 +437,8 @@
     .card{
       right: 0;
       bottom: 0;
-      height: auto;
+      height: 100%;
       border-radius: 0;
-      width: 80%;
-  }
-  .search{
-    width: 50%;
-    justify-content: center;
+      width: 90%;
   }
   }
