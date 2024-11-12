@@ -421,7 +421,39 @@
     }
     .search input {
       font-size: 16px;
+      width: 60%;
     }
+    .weather h1 {
+      font-size: 50px;
+    }
+    .weather h2 {
+      font-size: 30px;
+    }
+    .details {
+      flex-direction: column;
+      text-align: center;
+    }
+    .col {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media screen and (min-width: 375px) and (max-width: 426px){
+    .card {
+      width: 90%;
+      padding: 20px 15px;
+      border-radius: 10px;
+    }
+    .search input {
+      font-size: 16px;
+      width: 60%;
+    }
+
+    .search img{
+      width: 10px;
+    }
+
     .weather h1 {
       font-size: 50px;
     }
@@ -439,7 +471,7 @@
   }
   
 
-  @media screen and (min-width: 375px) and (max-width: 520px) {
+  @media screen and (min-width: 414px) and (max-width: 520px) {
     #chatbot-toggler {
       right: 20px;
       bottom: 20px;
