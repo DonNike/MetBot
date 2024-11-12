@@ -376,12 +376,16 @@
     justify-content: space-between;
     padding: 0 20px;
     margin-top: 50px;
+    flex-wrap: wrap;  /* Allows items to wrap */
+    gap: 20px;
 }
 
 .col{
     display: flex;
     align-items: center;
     text-align: left;
+    flex: 1; 
+    min-width: 150px;
 }
 
 .col img{
@@ -409,7 +413,33 @@
 }
 
   /* Responsive media query for mobile screens */
-  @media (max-width: 520px) {
+  @media screen and (max-width: 374px) {
+    .card {
+      width: 100%;
+      padding: 20px 15px;
+      border-radius: 10px;
+    }
+    .search input {
+      font-size: 16px;
+    }
+    .weather h1 {
+      font-size: 50px;
+    }
+    .weather h2 {
+      font-size: 30px;
+    }
+    .details {
+      flex-direction: column;
+      text-align: center;
+    }
+    .col {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  
+
+  @media screen and (min-width: 375px) and (max-width: 520px) {
     #chatbot-toggler {
       right: 20px;
       bottom: 20px;
@@ -434,11 +464,23 @@
     .chat-form .file-upload-wrapper.file-uploaded #file-cancel {
       opacity: 0;
     }
-    .card{
-      right: 0;
-      bottom: 0;
-      height: 100%;
-      border-radius: 0;
-      width: 90%;
+    .card {
+      margin: 20px;
+      padding: 30px 20px;
+      border-radius: 15px;
+    }
+    .search input {
+      font-size: 18px;
+    }
+    .weather h1 {
+      font-size: 60px;
+    }
+    .weather h2 {
+      font-size: 35px;
+    }
+    .details {
+      padding: 0 15px;
+    }
   }
-  }
+
+  
