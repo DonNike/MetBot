@@ -10,8 +10,15 @@
   body {
     width: 100%;
     min-height: 100vh;
-    overflow: hidden;
-    background: linear-gradient(135deg, #00FEBA, #006a3e);
+    /* overflow: hidden; */
+  }
+  .weather-body{
+    min-height: 100vh;
+    background-image: url(Images/sky-with-cloud.jpg);
+    padding-top: 25px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
   #chatbot-toggler {
     position: fixed;
@@ -27,6 +34,7 @@
     border-radius: 50%;
     background: #006a3e;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 1;
     transition: all 0.2s ease;
   }
   body.show-chatbot #chatbot-toggler {
@@ -58,6 +66,7 @@
     transform-origin: bottom right;
     box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
       0 32px 64px -48px rgba(0, 0, 0, 0.5);
+    z-index: 1;
     transition: all 0.1s ease;
   }
   body.show-chatbot .chatbot-popup {
@@ -308,12 +317,14 @@
     visibility: visible;
   }
 
+
   .card{
     width: 90%;
     max-width: 470px;
-    background: linear-gradient(135deg, #00FEBA, #006a3e);
+    backdrop-filter: blur(10px);
     color: #fff;
-    margin: 100px auto 0;
+    background: linear-gradient(135deg, rgba(0, 254, 186, 0.4), rgba(0, 106, 62, 0.4));
+    margin: 0 auto 0;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
@@ -361,6 +372,7 @@
 .weather h1{
     font-size: 80px;
     font-weight: 500;
+    color: white;
 }
 
 .weather h2{
@@ -410,6 +422,149 @@
     margin-top: 10px;
     display: none;
 }
+
+
+.carbon-calc{
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('Images/factory-producing-co2-pollution.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+.container { 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+  backdrop-filter: blur(10px);
+  color: #fff;
+  background-image: url(Images/factory-producing-co2-pollution.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto 0;
+  border-radius: 20px;
+  padding: 40px 35px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+#carbonForm {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: left;
+}
+
+label {
+  font-weight: bold;
+}
+
+input{
+  border: none;
+  outline: none;
+  transition: all .5s ease;
+}
+
+input:focus{
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+input[type="number"],
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+button {
+  padding: 10px;
+  background-color: #3498db;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+input[type="checkbox"] {
+  appearance: none; 
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc; 
+  border-radius: 4px; 
+  background-color: white;
+  cursor: pointer;
+  display: inline-block;
+}
+
+input[type="checkbox"]:checked {
+  background-color: green;
+  border-color: green;
+  position: relative;
+}
+
+input[type="checkbox"]:checked::after {
+  content: '✔'; 
+  color: white;
+  font-size: 16px;
+  position: absolute;
+  top: -3px;
+  left: 4px;
+}
+
+
+#result {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#result span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#result span .high{
+  font-size: 16px;
+}
+
+#result span .low{
+  font-size: 16px;
+}
+
+.low {
+  color: green;
+}
+
+.high {
+  color: red;
+}
+
+.checkBox{
+  display: flex;
+  align-content: center;
+  gap: 10px;
+} 
+
+
 
   /* Responsive media query for mobile screens */
   @media screen and (max-width: 374px) {
@@ -560,6 +715,69 @@
     .details {
       padding: 0 15px;
     }
+
+    .container {
+      padding: 10px;
   }
 
+  h1 {
+      font-size: 1.2rem;
+  }
+
+  button {
+      font-size: 0.8rem;
+      padding: 6px;
+  }
+
+  label {
+      font-size: 0.8rem;
+  }
+
+  input[type="number"],
+  select {
+      font-size: 0.8rem;
+      padding: 6px;
+  }
+
+  input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      line-height: 14px;
+  }
+  }
+
+  @media (min-width: 520px) and (max-width: 768px){
+    
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px){
+    .container {
+      padding: 15px;
+  }
+
+  h1 {
+      font-size: 1.5rem;
+  }
+
+  button {
+      font-size: 0.9rem;
+      padding: 8px;
+  }
+
+  label {
+      font-size: 0.9rem;
+  }
+
+  input[type="number"],
+  select {
+      font-size: 0.9rem;
+      padding: 8px;
+  }
+
+  input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+  }
+  }
   

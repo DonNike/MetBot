@@ -227,4 +227,100 @@ document.addEventListener("DOMContentLoaded", () => {
   closeChatbot.addEventListener("click", () =>
     document.body.classList.remove("show-chatbot")
   );
+
+  //Weather App
+  const apiKey = "7229664f031822f609f2f4bd8e0811aa";
+  const apiUrl =
+    "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+  const searchBox = document.querySelector(".search input");
+  const searchBtn = document.querySelector(".search button");
+  const weatherIcon = document.querySelector(".weather-icon");
+
+  async function checkWeather(city) {
+    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+
+    if (response.status == 404) {
+      document.querySelector(".weather").style.display = "none";
+      document.querySelector(".error").style.display = "block";
+    } else {
+      var data = await response.json();
+
+      document.querySelector(".city").innerHTML = data.name;
+      document.querySelector(".temp").innerHTML =
+        Math.round(data.main.temp) + "°c";
+      document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+      document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
+
+      if (data.weather[0].main == "Clouds") {
+        weatherIcon.src = "Images/clouds.png";
+      } else if (data.weather[0].main == "Clear") {
+        weatherIcon.src = "Images/clear.png";
+      } else if (data.weather[0].main == "Rain") {
+        weatherIcon.src = "Images/rain.png";
+      } else if (data.weather[0].main == "Drizzle") {
+        weatherIcon.src = "Images/drizzle.png";
+      } else if (data.weather[0].main == "Mist") {
+        weatherIcon.src = "Images/mist.png";
+      }
+
+      document.querySelector(".weather").style.display = "block";
+      document.querySelector(".error").style.display = "none";
+    }
+  }
+
+  searchBtn.addEventListener("click", () => {
+    checkWeather(searchBox.value);
+  });
+
+  //Carbon Calculator
+  document
+    .getElementById("carbonForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      // Collect inputs
+      const electricityUsage = parseFloat(
+        document.getElementById("electricity").value || 0
+      ); // kWh per day
+      const kilometersDriven = parseFloat(
+        document.getElementById("transport").value || 0
+      ); // km per day
+      const diet = document.getElementById("diet").value; // Diet type
+      const hasNoCar = document.getElementById("noCar").checked; // Checkbox for car ownership
+
+      // Emission Factors (per unit activity)
+      const electricityEmissionFactor = 0.2; // kg CO₂ per kWh
+      const carEmissionFactor = 0.21; // kg CO₂ per km
+      const dietEmissionFactors = {
+        meat: 6.85, // kg CO₂ per day for a meat-based diet
+        vegetarian: 3.29, // kg CO₂ per day for a vegetarian diet
+        vegan: 2.74, // kg CO₂ per day for a vegan diet
+      };
+
+      // Daily average carbon footprint in developing countries
+      const averageDailyCarbonFootprint = 6.85; // kg CO₂ per day (from global averages)
+
+      // Calculate emissions
+      const electricityEmissions = electricityUsage * electricityEmissionFactor;
+      const carEmissions = hasNoCar ? 0 : kilometersDriven * carEmissionFactor;
+      const dietEmissions = dietEmissionFactors[diet];
+
+      // Total daily emissions
+      const totalDailyEmissions =
+        electricityEmissions + carEmissions + dietEmissions;
+
+      // Determine if footprint is low or high
+      const isHighFootprint = totalDailyEmissions > averageDailyCarbonFootprint;
+      const resultText = isHighFootprint
+        ? `<span class="high">Your daily carbon footprint is high</span>`
+        : `<span class="low">Your daily carbon footprint is low</span>`;
+      const resultClass = isHighFootprint ? "high" : "low";
+
+      // Display result
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = `<span class="${resultClass}">${resultText}</span> (Your estimated daily carbon footprint is <strong>${totalDailyEmissions.toFixed(
+        2
+      )} kg CO₂/day</strong>)`;
+    });
 });

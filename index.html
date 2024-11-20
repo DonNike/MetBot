@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+      content="width=90vw, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
     <title>MetBot</title>
     <link rel="stylesheet" href="style.css" />
@@ -18,183 +18,177 @@
     />
   </head>
   <body>
-    <div class="card">
-      <div class="search">
-        <input
-          type="text"
-          placeholder="Enter City name"
-          spellcheck="false"
-          class="text"
-        />
-        <button>
-          <img src="Images/search.png" alt="" />
-        </button>
-      </div>
-      <div class="error">
-        <p>Invalid City Name</p>
-      </div>
-      <div class="weather">
-        <img src="Images/rain.png" class="weather-icon" />
-        <h1 class="temp">22°C</h1>
-        <h2 class="city">Enugu</h2>
-        <div class="details">
-          <div class="col">
-            <img src="Images/humidity.png" />
-            <div>
-              <p class="humidity">50%</p>
-              <p>Humidity</p>
+    <section class="weather-body">
+      <div class="card">
+        <div class="search">
+          <input
+            type="text"
+            placeholder="Enter City name"
+            spellcheck="false"
+            class="text"
+          />
+          <button>
+            <img src="Images/search.png" alt="" />
+          </button>
+        </div>
+        <div class="error">
+          <p>Invalid City Name</p>
+        </div>
+        <div class="weather">
+          <img src="Images/rain.png" class="weather-icon" />
+          <h1 class="temp">22°C</h1>
+          <h2 class="city">Enugu</h2>
+          <div class="details">
+            <div class="col">
+              <img src="Images/humidity.png" />
+              <div>
+                <p class="humidity">50%</p>
+                <p>Humidity</p>
+              </div>
+            </div>
+            <div class="col">
+              <img src="Images/wind.png" />
+              <div>
+                <p class="wind">15km</p>
+                <p>Wind Speed</p>
+              </div>
             </div>
           </div>
-          <div class="col">
-            <img src="Images/wind.png" />
-            <div>
-              <p class="wind">15km</p>
-              <p>Wind Speed</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <button id="chatbot-toggler">
-      <span class="material-symbols-rounded">mode_comment</span>
-      <span class="material-symbols-rounded">close</span>
-    </button>
-
-    <div class="chatbot-popup">
-      <div class="chat-header">
-        <div class="header-info">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="#fff"
-          >
-            <path
-              d="M261.7-140.78q-98.92 0-169.07-68.09-70.15-68.09-70.15-166.43 0-83.66 47.85-150.03 47.84-66.37 127.8-84.5 28.39-94.26 106.22-151.82 77.82-57.57 175.65-57.57 119.83 0 205 82.07 85.17 82.06 91.39 201.32 70.7 14.22 115.92 69.68 45.21 55.45 45.21 127.85 0 82.34-57.58 139.93-57.59 57.59-139.94 57.59H261.7Z"
-            />
-          </svg>
-          <h2 class="logo-text">Metbot</h2>
-        </div>
-        <button id="close-chatbot" class="material-symbols-rounded">
-          keyboard_arrow_down
-        </button>
-      </div>
-
-      <!-- chatbot body -->
-      <div class="chat-body">
-        <div class="message bot-message">
-          <svg
-            class="bot-avatar"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="#5f6368"
-          >
-            <path
-              d="M261.7-140.78q-98.92 0-169.07-68.09-70.15-68.09-70.15-166.43 0-83.66 47.85-150.03 47.84-66.37 127.8-84.5 28.39-94.26 106.22-151.82 77.82-57.57 175.65-57.57 119.83 0 205 82.07 85.17 82.06 91.39 201.32 70.7 14.22 115.92 69.68 45.21 55.45 45.21 127.85 0 82.34-57.58 139.93-57.59 57.59-139.94 57.59H261.7Z"
-            />
-          </svg>
-          <div class="message-text">
-            Hey <b>Meteorologist</b> 👋 <br />How can I help you this hour?
-          </div>
         </div>
       </div>
 
-      <!-- chatbot footer -->
-      <div class="chat-footer">
-        <form action="#" class="chat-form">
-          <textarea
-            placeholder="Message..."
-            class="message-input"
-            required
-          ></textarea>
-          <div class="chat-controls">
-            <button
-              type="button"
-              id="emoji-picker"
-              class="material-symbols-outlined"
+      <button id="chatbot-toggler">
+        <span class="material-symbols-rounded">mode_comment</span>
+        <span class="material-symbols-rounded">close</span>
+      </button>
+
+      <div class="chatbot-popup">
+        <div class="chat-header">
+          <div class="header-info">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#fff"
             >
-              sentiment_satisfied
-            </button>
-            <div class="file-upload-wrapper">
-              <input type="file" accept="Images/*" id="file-input" hidden />
-              <img src="#" />
+              <path
+                d="M261.7-140.78q-98.92 0-169.07-68.09-70.15-68.09-70.15-166.43 0-83.66 47.85-150.03 47.84-66.37 127.8-84.5 28.39-94.26 106.22-151.82 77.82-57.57 175.65-57.57 119.83 0 205 82.07 85.17 82.06 91.39 201.32 70.7 14.22 115.92 69.68 45.21 55.45 45.21 127.85 0 82.34-57.58 139.93-57.59 57.59-139.94 57.59H261.7Z"
+              />
+            </svg>
+            <h2 class="logo-text">Metbot</h2>
+          </div>
+          <button id="close-chatbot" class="material-symbols-rounded">
+            keyboard_arrow_down
+          </button>
+        </div>
+
+        <!-- chatbot body -->
+        <div class="chat-body">
+          <div class="message bot-message">
+            <svg
+              class="bot-avatar"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#5f6368"
+            >
+              <path
+                d="M261.7-140.78q-98.92 0-169.07-68.09-70.15-68.09-70.15-166.43 0-83.66 47.85-150.03 47.84-66.37 127.8-84.5 28.39-94.26 106.22-151.82 77.82-57.57 175.65-57.57 119.83 0 205 82.07 85.17 82.06 91.39 201.32 70.7 14.22 115.92 69.68 45.21 55.45 45.21 127.85 0 82.34-57.58 139.93-57.59 57.59-139.94 57.59H261.7Z"
+              />
+            </svg>
+            <div class="message-text">
+              Hey <b>Meteorologist</b> 👋 <br />How can I help you this hour?
+            </div>
+          </div>
+        </div>
+
+        <!-- chatbot footer -->
+        <div class="chat-footer">
+          <form action="#" class="chat-form">
+            <textarea
+              placeholder="Message..."
+              class="message-input"
+              required
+            ></textarea>
+            <div class="chat-controls">
               <button
                 type="button"
-                id="file-upload"
-                class="material-symbols-rounded"
+                id="emoji-picker"
+                class="material-symbols-outlined"
               >
-                attach_file
+                sentiment_satisfied
               </button>
+              <div class="file-upload-wrapper">
+                <input type="file" accept="Images/*" id="file-input" hidden />
+                <img src="#" />
+                <button
+                  type="button"
+                  id="file-upload"
+                  class="material-symbols-rounded"
+                >
+                  attach_file
+                </button>
+                <button
+                  type="button"
+                  id="file-cancel"
+                  class="material-symbols-rounded"
+                >
+                  close
+                </button>
+              </div>
               <button
-                type="button"
-                id="file-cancel"
+                type="submit"
+                id="send-message"
                 class="material-symbols-rounded"
               >
-                close
+                arrow_upward
               </button>
             </div>
-            <button
-              type="submit"
-              id="send-message"
-              class="material-symbols-rounded"
-            >
-              arrow_upward
-            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="carbon-calc">
+      <div class="container">
+        <h1>Carbon Footprint Calculator</h1>
+        <form id="carbonForm">
+          <label for="electricity">Electricity Usage (kWh):</label>
+          <input type="number" id="electricity" required /><br /><br />
+
+          <label for="transport">Distance Traveled by Car (km daily):</label>
+          <input type="number" id="transport" /><br /><br />
+
+          <label for="diet">Diet:</label>
+          <select id="diet">
+            <option value="meat">Meat 🍖</option>
+            <option value="vegetarian">Vegetarian 🥛</option>
+            <option value="vegan">Vegan 🥬</option></select
+          ><br /><br />
+
+          <!-- Checkbox for whether the person has a car -->
+          <div class="checkBox">
+            <div>
+              <label for="noCar">I don't have a car?</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="noCar"
+                style="margin-top: 3px"
+              /><br /><br />
+            </div>
           </div>
+          <button type="submit">Calculate Carbon Footprint</button>
         </form>
+
+        <div id="result"></div>
+
+        <div id="result" class="result"></div>
       </div>
-    </div>
-
-    <script>
-      const apiKey = "7229664f031822f609f2f4bd8e0811aa";
-      const apiUrl =
-        "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-
-      const searchBox = document.querySelector(".search input");
-      const searchBtn = document.querySelector(".search button");
-      const weatherIcon = document.querySelector(".weather-icon");
-
-      async function checkWeather(city) {
-        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-
-        if (response.status == 404) {
-          document.querySelector(".weather").style.display = "none";
-          document.querySelector(".error").style.display = "block";
-        } else {
-          var data = await response.json();
-
-          document.querySelector(".city").innerHTML = data.name;
-          document.querySelector(".temp").innerHTML =
-            Math.round(data.main.temp) + "°c";
-          document.querySelector(".humidity").innerHTML =
-            data.main.humidity + "%";
-          document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
-
-          if (data.weather[0].main == "Clouds") {
-            weatherIcon.src = "Images/clouds.png";
-          } else if (data.weather[0].main == "Clear") {
-            weatherIcon.src = "Images/clear.png";
-          } else if (data.weather[0].main == "Rain") {
-            weatherIcon.src = "Images/rain.png";
-          } else if (data.weather[0].main == "Drizzle") {
-            weatherIcon.src = "Images/drizzle.png";
-          } else if (data.weather[0].main == "Mist") {
-            weatherIcon.src = "Images/mist.png";
-          }
-
-          document.querySelector(".weather").style.display = "block";
-          document.querySelector(".error").style.display = "none";
-        }
-      }
-
-      searchBtn.addEventListener("click", () => {
-        checkWeather(searchBox.value);
-      });
-    </script>
+    </section>
 
     <!-- Linking Emoji Mart script for emoji picker  -->
     <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
